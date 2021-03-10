@@ -20,6 +20,7 @@ from typing import List
 from nlp_architect import LIBRARY_ROOT
 from nlp_architect.common.cdc.cluster import Clusters
 from nlp_architect.common.cdc.topics import Topics
+from nlp_architect.data.cdc_resources.relations.computed_relation_extraction import ComputedRelationExtraction
 from nlp_architect.data.cdc_resources.relations.referent_dict_relation_extraction import (
     ReferentDictRelationExtraction,
 )
@@ -66,6 +67,7 @@ def run_example(cdc_settings):
 
 def load_modules(cdc_resources):
     models = list()
+    models.append(ComputedRelationExtraction())
     models.append(
         WikipediaRelationExtraction(
             cdc_resources.wiki_search_method,
